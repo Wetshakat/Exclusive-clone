@@ -16,7 +16,7 @@ const categories = [
 
 const Hero = () => {
   return (
-    <div className="flex px-[5%]  ml-10 mt-[150px] gap-3">
+    <div className="flex px-[5%] justify-between  ml-10 mt-[150px] gap-3">
    
       <div className="w-1/5 bg-white p-4">
         <ul className="space-y-3 text-lg ">

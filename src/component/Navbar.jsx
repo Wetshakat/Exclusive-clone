@@ -1,15 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {
-  User,
-  Heart,
-  ShoppingCart,
-  LogOut,
-  Package,
-  XCircle,
-  Star
-} from 'lucide-react';
+import { User, Heart, ShoppingCart, LogOut, Package, XCircle, Star } from 'lucide-react';
 
-const Navbar = ({ cartCount }) => {
+const Navbar = ({ cartCount, toggleCartVisibility }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -68,7 +60,10 @@ const Navbar = ({ cartCount }) => {
           <Heart className="w-5 h-5 text-gray-700 cursor-pointer" />
 
           <div className="relative">
-            <ShoppingCart className="w-5 h-5 text-gray-700 cursor-pointer" />
+            <ShoppingCart
+              className="w-5 h-5 text-gray-700 cursor-pointer"
+              onClick={() => toggleCartVisibility()} // Toggle visibility of cart
+            />
             {cartCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
                 {cartCount}

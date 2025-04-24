@@ -6,7 +6,7 @@ import pefume from '../assets/images/pefume.png';
 
 const Collections = () => {
   return (
-    <section className="bg-black px-6 py-12 max-w-screen-xl mx-auto">
+    <section className=" px-6 py-12 max-w-screen-xl mx-auto">
       <p className="text-red-500 font-semibold">Featured</p>
       <h2 className="text-3xl font-bold mb-8">New Arrival</h2>
 
@@ -23,7 +23,7 @@ const Collections = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           
-          <div className="relative rounded overflow-hidden col-span-2 sm:col-span-2">
+          <div className="relative bg-black rounded overflow-hidden col-span-2 sm:col-span-2">
             <img src={queen} alt="Women's Collections" className="w-full h-full object-cover" />
             <div className="absolute bottom-4 left-4 text-white">
               <h3 className="text-lg font-semibold">Women’s Collections</h3>
@@ -33,7 +33,7 @@ const Collections = () => {
           </div>
 
           
-          <div className="relative rounded overflow-hidden">
+          <div className="relative bg-black rounded overflow-hidden">
             <img src={batrrys} alt="Speakers" className="w-full h-full object-cover" />
             <div className="absolute bottom-4 left-4 text-white">
               <h3 className="text-lg font-semibold">Speakers</h3>
@@ -43,7 +43,7 @@ const Collections = () => {
           </div>
 
           
-          <div className="relative rounded overflow-hidden">
+          <div className="relative bg-black rounded overflow-hidden">
             <img src={pefume} alt="Perfume" className="w-full h-full object-cover" />
             <div className="absolute bottom-4 left-4 text-white">
               <h3 className="text-lg font-semibold">Perfume</h3>

@@ -39,7 +39,7 @@ const Countdown = () => {
 
         
         <div className="flex items-center gap-4">
-          <h2 className="text-2xl font-bold">Flash Sales</h2>
+          <h2 className="text-3xl font-bold">Flash Sales</h2>
           {[
             { label: 'Days', value: timeLeft.days },
             { label: 'Hours', value: timeLeft.hours },
@@ -48,8 +48,8 @@ const Countdown = () => {
           ].map((item, index) => (
             <div key={index} className="text-center">
                 <div className="text-xs text-black mt-1">{item.label}</div>
-              <div className="text-xl font-bold text-black px-3 py-1 rounded-md">
-                {String(item.value).padStart(2, '0')}
+              <div className="text-3xl font-bold text-black px-3 py-1 rounded-md">
+               : {String(item.value).padStart(2, '0')}
               </div>
               
             </div>

@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { Heart, Eye, Star } from 'lucide-react'
 
 const Fcart = ({ setCartCount }) => {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]) // Store the fetched products
+  const [allProducts, setAllProducts] = useState(false) // State to manage showing all products
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await fetch('https://fakestoreapi.com/products')
         const data = await response.json()
-        setProducts(data.slice(0, 5)) // Only first 5 products
+        setProducts(data.slice(0, 5)) // Show only 5 products initially
       } catch (error) {
         console.error('Failed to fetch products:', error)
       }
@@ -21,6 +22,19 @@ const Fcart = ({ setCartCount }) => {
   const getDiscount = () => {
     const discounts = [40, 35, 30, 28, 25]
     return discounts[Math.floor(Math.random() * discounts.length)]
+  }
+
+  const handleAddToCart = (product) => {
+    setCartCount((prev) => prev + 1)
+    // Add the logic to store product details in cart (optional)
+  }
+
+  // Show all products when clicked
+  const handleViewAll = async () => {
+    const response = await fetch('https://fakestoreapi.com/products')
+    const data = await response.json()
+    setProducts(data) // Set all products
+    setAllProducts(true) // Set state to true to show all products
   }
 
   return (
@@ -61,7 +75,7 @@ const Fcart = ({ setCartCount }) => {
               </div>
 
               <button
-                onClick={() => setCartCount((prev) => prev + 1)}
+                onClick={() => handleAddToCart(product)}
                 className="w-full mt-3 py-1 bg-black text-white text-sm rounded hover:bg-gray-800"
               >
                 Add To Cart
@@ -72,7 +86,10 @@ const Fcart = ({ setCartCount }) => {
       </div>
 
       <div className="flex justify-center mt-6">
-        <button className="px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition">
+        <button
+          onClick={handleViewAll}
+          className="px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+        >
           View All Products
         </button>
       </div>
