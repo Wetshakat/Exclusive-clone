@@ -2,6 +2,10 @@ import React from 'react'
 import { Truck, Headphones, CheckCircle } from 'lucide-react' // Optional: use your own icons
 
 const Svgs = () => {
+  // const handleCardIconClick = () => {
+  //   setShowProducts(!showProducts) 
+  // }
+
   const services = [
     {
       icon: <Truck size={28} className="text-white" />,

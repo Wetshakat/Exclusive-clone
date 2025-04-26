@@ -62,12 +62,15 @@ const Navbar = ({ cartCount, toggleCartVisibility }) => {
           <div className="relative">
             <ShoppingCart
               className="w-5 h-5 text-gray-700 cursor-pointer"
-              onClick={() => toggleCartVisibility()} // Toggle visibility of cart
+              onClick={() => toggleCartVisibility()} 
+
             />
             {cartCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
                 {cartCount}
               </span>
+
+              
             )}
           </div>
 

@@ -27,8 +27,9 @@ const Scard = ({ handleAddToCart, cartItems, setCartItems }) => {
 
   
   const handleViewAllClick = () => {
-    setShowAll(true) 
-  }
+    setShowAll(prev => !prev);
+  };
+  
 
   const handleCardIconClick = () => {
     setShowProducts(!showProducts) 
@@ -62,7 +63,7 @@ const Scard = ({ handleAddToCart, cartItems, setCartItems }) => {
 
      
       {showProducts && (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 items-end">
           {(showAll ? products : products.slice(16, 20)).map((product) => (
             <div key={product.id} className="bg-white p-3 w-[300px] justify-between rounded-md shadow hover:shadow-lg transition">
               <img src={product.image} alt={product.title} className="h-32 mx-auto object-contain" />
@@ -81,7 +82,7 @@ const Scard = ({ handleAddToCart, cartItems, setCartItems }) => {
                 <div className="flex gap-2 items-center text-sm">
                   <span className="text-gray-900 font-semibold">${product.price}</span>
                 </div>
-              </div>
+                </div>
               <button
                 onClick={() => handleAddToCart(product)}
                 className="w-full mt-3 py-1 bg-black text-white text-sm rounded hover:bg-gray-800"
