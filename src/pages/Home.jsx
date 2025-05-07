@@ -81,7 +81,7 @@ function Home() {
                       alt={item.title}
                       className="w-16 h-16 object-cover"
                     />
-                    <span className="text-lg font-medium">{item.title}</span>
+                    <span className="text-xs font-medium">{item.title}</span>
                     <span className="text-gray-500">${item.price}</span>
                   </div>
                   <button
@@ -97,9 +97,9 @@ function Home() {
         </div>
 
         <div className="mt-4">
-          <button className="w-full bg-black text-white py-2 rounded">
+          {/* <button className="w-full bg-black text-white py-2 rounded">
             Checkout
-          </button>
+          </button> */}
         </div>
       </div>
 

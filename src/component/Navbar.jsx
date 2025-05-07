@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { User, Heart, ShoppingCart, LogOut, Package, XCircle, Star } from 'lucide-react';
+import { User, Heart, ShoppingCart, LogOut, Package, XCircle, Star, AlignJustify } from 'lucide-react';
 
 const Navbar = ({ cartCount, toggleCartVisibility }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const [menuOpen, setMenu] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -17,6 +18,7 @@ const Navbar = ({ cartCount, toggleCartVisibility }) => {
 
   return (
     <nav className="w-full fixed top-0 left-0 right-0 z-50">
+      
       <div className="bg-black text-white text-sm py-2 px-[5%] flex justify-between items-center">
         <p>
           Summer Sale For All Swim Suits And Free Express Delivery – OFF 50%!{' '}
@@ -25,16 +27,19 @@ const Navbar = ({ cartCount, toggleCartVisibility }) => {
         <span className="cursor-pointer">English ▼</span>
       </div>
 
+      
       <div className="w-full bg-white shadow-sm py-4 px-[5%] flex justify-between items-center">
         <div className="text-2xl font-bold text-gray-900">Exclusive</div>
 
-        <ul className="flex gap-8 text-gray-700 font-medium">
+        
+        <ul className="hidden md:flex gap-8 text-gray-700 font-medium">
           <li className="hover:text-blue-600 cursor-pointer">Home</li>
           <li className="hover:text-blue-600 cursor-pointer">Contact</li>
           <li className="hover:text-blue-600 cursor-pointer">About</li>
           <li className="hover:text-blue-600 cursor-pointer">Sign Up</li>
         </ul>
 
+        
         <div className="flex items-center gap-4 relative" ref={dropdownRef}>
           <div className="hidden md:flex items-center px-3 py-1 bg-gray-100 rounded-md w-64">
             <input
@@ -62,18 +67,16 @@ const Navbar = ({ cartCount, toggleCartVisibility }) => {
           <div className="relative">
             <ShoppingCart
               className="w-5 h-5 text-gray-700 cursor-pointer"
-              onClick={() => toggleCartVisibility()} 
-
+              onClick={toggleCartVisibility}
             />
             {cartCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
                 {cartCount}
               </span>
-
-              
             )}
           </div>
 
+          
           <div
             onClick={() => setIsOpen((prev) => !prev)}
             className="bg-red-600 p-2 rounded-full cursor-pointer z-50"
@@ -93,7 +96,26 @@ const Navbar = ({ cartCount, toggleCartVisibility }) => {
             </div>
           )}
         </div>
+
+      
+        <div className="md:hidden">
+          <button onClick={() => setMenu(!menuOpen)} className="text-2xl text-black">
+            <AlignJustify />
+          </button>
+        </div>
       </div>
+
+     
+      {menuOpen && (
+        <div className="md:hidden bg-white shadow-md absolute top-[104px] left-0 w-full px-[5%] py-4 z-40">
+          <ul className="flex flex-col gap-4 text-gray-700 font-medium">
+            <li className="hover:text-blue-600 cursor-pointer" onClick={() => setMenu(false)}>Home</li>
+            <li className="hover:text-blue-600 cursor-pointer" onClick={() => setMenu(false)}>Contact</li>
+            <li className="hover:text-blue-600 cursor-pointer" onClick={() => setMenu(false)}>About</li>
+            <li className="hover:text-blue-600 cursor-pointer" onClick={() => setMenu(false)}>Sign Up</li>
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };
